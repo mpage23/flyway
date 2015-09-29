@@ -21,6 +21,7 @@ import org.flywaydb.core.internal.dbsupport.db2zos.DB2zosDbSupport;
 import org.flywaydb.core.internal.dbsupport.derby.DerbyDbSupport;
 import org.flywaydb.core.internal.dbsupport.h2.H2DbSupport;
 import org.flywaydb.core.internal.dbsupport.hsql.HsqlDbSupport;
+import org.flywaydb.core.internal.dbsupport.memsql.MemSQLDbSupport;
 import org.flywaydb.core.internal.dbsupport.mysql.MySQLDbSupport;
 import org.flywaydb.core.internal.dbsupport.oracle.OracleDbSupport;
 import org.flywaydb.core.internal.dbsupport.postgresql.PostgreSQLDbSupport;
@@ -83,6 +84,13 @@ public class DbSupportFactory {
             // For regular MySQL, MariaDB and Google Cloud SQL.
             // Google Cloud SQL returns different names depending on the environment and the SDK version.
             //   ex.: Google SQL Service/MySQL
+
+            // MemSQL uses the MySQL client doesn't support all commands. We can determine if we're in MemSQL by
+            // executing a query to test a server property
+            MemSQLDbSupport memSql = new MemSQLDbSupport(connection);
+            if (memSql.detect()) {
+                return memSql;
+            }
             return new MySQLDbSupport(connection);
         }
         if (databaseProductName.startsWith("Oracle")) {

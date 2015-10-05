@@ -26,7 +26,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-parent</artifactId>
-    <version>0-SNAPSHOT</version>
+    <version>3.2.1SK</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>
@@ -55,7 +55,7 @@
 
     <modules>
         <module>flyway-core</module>
-        <module>flyway-gradle-plugin</module>
+        <!--module>flyway-gradle-plugin</module>
         <module>flyway-gradle-plugin-largetest</module>
         <module>flyway-maven-plugin</module>
         <module>flyway-maven-plugin-largetest</module>
@@ -69,7 +69,7 @@
         <module>flyway-ant</module>
         <module>flyway-ant-largetest</module>
         <module>flyway-sbt</module>
-        <module>flyway-sbt-largetest</module>
+        <module>flyway-sbt-largetest</module-->
     </modules>
 
     <distributionManagement>
@@ -112,7 +112,7 @@
         <version.equinoxcommon>3.6.0.v20100503</version.equinoxcommon>
         <version.android>4.0.1.2</version.android>
         <version.slf4j>1.6.6</version.slf4j>
-        <version.jre>8.31</version.jre>
+        <version.jre>8.60</version.jre>
     </properties>
 
     <dependencyManagement>

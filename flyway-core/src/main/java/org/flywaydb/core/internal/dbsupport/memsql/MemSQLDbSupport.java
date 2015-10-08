@@ -42,6 +42,10 @@ public class MemSQLDbSupport extends MySQLDbSupport {
         return "memsql";
     }
 
+    public String getCurrentUserFunction() {
+        return "'UNKNOWN'";
+    }
+
     /**
      * @return {@code true} if we are connected to mEMsql; {@code false} otherwise
      */

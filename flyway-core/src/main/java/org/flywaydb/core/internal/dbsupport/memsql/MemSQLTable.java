@@ -43,6 +43,6 @@ public class MemSQLTable extends MySQLTable {
      * MemSql doesn't support SELECT FOR UPDATE is what the MySQL table uses
      */
     protected void doLock() throws SQLException {
-        jdbcTemplate.execute("LOCK TABLES " + this.toString() + " READ");
+        // MemSQL doesn't support SELECT FOR UPDATE
     }
 }
